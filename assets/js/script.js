@@ -91,7 +91,6 @@ $(document).ready(function () {
       }
     }
 
-    callParkingApi(latitude, longitude);
     callBrewery(latitude, longitude);
     saveSearchedCity(cityName);
     $(".recent-btn").remove();
@@ -100,47 +99,6 @@ $(document).ready(function () {
   // clicking the dropdown menu will call the searchMajorCity function to compare the value in the array then push the lat & lng to parking fetch function.
   $(".dropdown-content").click(searchMajorCity);
 });
-
-// function calling parking API through google places js library. This solution was required due to CORS issue.
-function callParkingApi(lat, lng) {
-  let location = new google.maps.LatLng(lat, lng);
-
-  let map = new google.maps.Map(document.querySelector("#map"), {
-    center: location,
-    zoom: 10,
-  });
-
-  let request = {
-    location: location,
-    radius: "300",
-    types: ["parking"],
-  };
-  service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback);
-}
-
-function callback(results, status) {
-  $(".fas").remove();
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (let i = 1; i <= 5; i++) {
-      const placeName = results[i - 1].name;
-      const placeAddress = results[i - 1].vicinity;
-
-      // adds style/display to the parking results
-      $("#parking-" + i).attr("class", "m-4 p-1 has-background-info-light parking-info");
-      $("#parkIcon-" + i).append("<i class='fas fa-parking fa-2x'></i>");
-      $("#parkName-" + i).text(placeName);
-      $("#parkAddress-" + i).text(placeAddress);
-    }
-  } else {
-    $("#modalJs").addClass("is-active");
-    $("html").addClass("is-clipped");
-    $("#modalClose").on("click", function () {
-      $("html").removeClass("is-clipped");
-      window.location.reload();
-    });
-  }
-}
 
 // function to call the openbrewerydb API.
 function callBrewery(lat, lng) {
@@ -159,6 +117,9 @@ function callBrewery(lat, lng) {
     }
   });
 }
+
+// function to display 5 breweries based on the city
+
 
 // function to display 5 breweries based on the city search.
 function breweryDisplay(results) {
@@ -233,7 +194,7 @@ function searchRecent(event) {
     }
   }
 
-  callParkingApi(latitude, longitude);
+  // callParkingApi(latitude, longitude);
   callBrewery(latitude, longitude);
 }
 
