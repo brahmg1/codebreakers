@@ -3,7 +3,7 @@
 
 <hr />
 
-### 🔭 You may find the team's deployed application at https://danielkim13.github.io/code_breakers_repo/
+### 🔭 You may find the team's deployed application at https://brahmg1.github.io/codebreakers/
 
 ### 👨‍💻The team's project repository can be found at https://github.com/danielkim13/code_breakers_repo/
 
