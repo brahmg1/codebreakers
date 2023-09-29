@@ -59,4 +59,5 @@ Historic records of our meetings and highlights for
 
 <h4><strong>Screen shot our deployed application</strong></h4>
 
-![](./assets/images/citygirl_screenshot.png)
+<img width="1432" alt="CityGirl_Brewery_Locator" src="https://github.com/brahmg1/codebreakers/assets/94041281/189c0c89-65c1-4a4e-aa0e-0ddc14a7a4bc">
+
